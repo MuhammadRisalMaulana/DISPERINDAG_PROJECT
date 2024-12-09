@@ -140,17 +140,23 @@ class MasyarakatController extends Controller
      */
     public function destroy($id)
     {
-        // Mencari data masyarakat berdasarkan id
-        $masyarakat = User::findOrFail($id);
-
-
-        // Menghapus data masyarakat
-        $masyarakat->delete();
-
-        // Mengembalikan respons JSON untuk konfirmasi
-        return response()->json([
-            'success' => true,
-            'message' => 'Data masyarakat berhasil dihapus.'
-        ]);
-    }
+        try {
+            // Mencari data masyarakat berdasarkan id
+            $masyarakat = User::findOrFail($id);
+    
+            // Menghapus data masyarakat
+            $masyarakat->delete();
+    
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+                'name' => $masyarakat->name
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan saat menghapus data.'
+            ], 500);
+        }
+}
 }

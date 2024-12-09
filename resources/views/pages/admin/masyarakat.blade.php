@@ -55,17 +55,11 @@
                                         {{ $masyarakat->email }}
                                     </td>
                                     <td class="px-4 py-3 text-sm">
-                                        <form action="{{ route('masyarakat.destroy', $masyarakat->id) }}" method="POST"
-                                            style="display: inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700">
-                                                Hapus
-                                            </button>
-                                        </form>
+                                        <button onclick="hapusData({{ $masyarakat->id }})"
+                                            class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700">
+                                            Hapus
+                                        </button>
                                     </td>
-
                                 </tr>
                             @empty
                                 <tr>
@@ -82,4 +76,59 @@
 
         </div>
     </main>
+
+    <!-- SweetAlert2 Script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.9/dist/sweetalert2.all.min.js"></script>
+    <!-- jQuery Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function hapusData(id) {
+            // Konfirmasi penghapusan menggunakan SweetAlert2
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data ini akan dihapus permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Mengirim permintaan AJAX untuk menghapus data
+                    $.ajax({
+                        url: '/masyarakat/' + id, // Sesuaikan dengan route destroy Anda
+                        type: 'DELETE',
+                        data: {
+                            _token: '{{ csrf_token() }}', // Menyertakan CSRF Token
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                Swal.fire(
+                                    'Terhapus!',
+                                    response.message,
+                                    'success'
+                                );
+                                // Menghapus baris tabel yang bersangkutan
+                                $('tr').filter(function() {
+                                    return $(this).find('td').eq(0).text() == response.name;
+                                }).remove();
+                            } else {
+                                Swal.fire(
+                                    'Gagal!',
+                                    'Terjadi kesalahan saat menghapus data.',
+                                    'error'
+                                );
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            Swal.fire(
+                                'Gagal!',
+                                'Terjadi kesalahan, coba lagi!',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        }
+    </script>
 @endsection

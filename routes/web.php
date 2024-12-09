@@ -51,7 +51,7 @@ Route::prefix('user')
         Route::get('/', 'MasyarakatController@index')->name('masyarakat-dashboard');
         Route::resource('pengaduan', 'MasyarakatController');
         Route::get('pengaduan', 'MasyarakatController@lihat');
-        Route::delete('masyarakat/{masyarakat}', 'MasyarakatController@destroy')->name('masyarakat.destroy');
+        Route::delete('masyarakat/{id}', 'MasyarakatController@destroy')->name('masyarakat.destroy');
         
     });
 
