@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
@@ -16,7 +17,7 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-
+        Carbon::setLocale('id');
         $items = Pengaduan::orderBy('created_at', 'DESC')->get();
         return view('pages.admin.pengaduan.index', [
             'items' => $items

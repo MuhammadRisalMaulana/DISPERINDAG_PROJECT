@@ -21,7 +21,7 @@ MADUKONCER | Detail Pengaduan
           <h2>Nama : {{ $item->name }}</h2>
           <h2 class="mt-4">Alamat : {{ $item->user_alamat }}</h2>
           <h2 class="mt-4">No Telepon : {{ $item->user->phone }}</h2>
-          <h2 class="mt-4">Tanggal : {{ $item->created_at->format('l, d F Y - H:i:s') }}</h2>
+          <h2 class="mt-4">Tanggal : {{ $item->created_at->locale('id')->isoFormat('dddd, D MMMM YYYY - HH:mm:ss') }}</h2>
           <h2 class="mt-4">Status : 
             @if($item->status =='Belum di Proses')
             <span

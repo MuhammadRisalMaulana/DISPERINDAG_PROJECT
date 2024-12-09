@@ -27,7 +27,7 @@
 
     <div>
       <h6>Laporan Pengaduan</h6>
-      <h6>{{ $pengaduan->created_at->format('l, d F Y') }}</h6>
+      <h6>{{ $pengaduan->created_at->locale('id')->isoFormat('dddd, D MMMM YYYY - HH:mm:ss') }}</h6>
     </div>
     <hr class="solid">
 

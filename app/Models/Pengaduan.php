@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -41,6 +41,11 @@ class Pengaduan extends Model
 
     public function status() {
     return $this->belongsTo(Tanggapan::class, 'status_id','status');
+    }
+
+    protected static function booted()
+    {
+        Carbon::setLocale('id');
     }
     
 }

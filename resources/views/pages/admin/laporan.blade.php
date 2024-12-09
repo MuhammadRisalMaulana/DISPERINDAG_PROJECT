@@ -52,8 +52,9 @@ MADUKONCER | Laporan
                 {{ $item->description }}
               </td>
               <td class="px-4 py-3 text-sm">
-                {{ $item->created_at->format('l, d F Y') }}
+                {{ $item->created_at->format('l, d F Y - H:i:s') }}
               </td>
+              
               
               @if($item->status =='Belum di Proses')
               <td class="px-4 py-3 text-xs">

@@ -43,8 +43,9 @@ MADUKONCER | Data Pengaduan
                 </div>
               </td>
               <td class="px-4 py-3 text-sm">
-                {{ $item->created_at->format('l, d F Y - H:i:s') }}
-              </td>
+                {{ \Carbon\Carbon::parse($item->created_at)->locale('id')->isoFormat('dddd, D MMMM YYYY - HH:mm:ss') }}
+            </td>
+            
               @if($item->status =='Belum di Proses')
               <td class="px-4 py-3 text-xs">
                 <span
