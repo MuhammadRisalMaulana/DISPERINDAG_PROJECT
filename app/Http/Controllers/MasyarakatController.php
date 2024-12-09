@@ -19,9 +19,15 @@ class MasyarakatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $user = Auth::user()->id;
+        $user = Auth::user()->nik;
         // dd($user);
 
         return view('pages.masyarakat.index', ['liat' => $user]);
@@ -50,12 +56,12 @@ class MasyarakatController extends Controller
             'image' => 'required',
         ]);
 
-        $alamat = Auth::user()->alamat;
+        $user_alamat = Auth::user()->alamat;
         $id = Auth::user()->id;
         $name = Auth::user()->name;
 
         $data = $request->all();
-        $data['user_alamat'] = $alamat;
+        $data['user_alamat'] = $user_alamat;
         $data['user_id'] = $id;
         $data['name'] = $name;
         $data['image'] = $request->file('image')->store('assets/laporan', 'public');
@@ -76,6 +82,8 @@ class MasyarakatController extends Controller
 
     public function lihat()
     {
+
+
         $user = Auth::user()->pengaduan()->orderBy('created_at', 'DESC')->get();
 
         return view('pages.masyarakat.detail', [
@@ -86,7 +94,8 @@ class MasyarakatController extends Controller
     public function show($id)
     {
         $item = Pengaduan::with([
-            'details', 'user'
+            'details',
+            'user'
         ])->findOrFail($id);
 
         $tangap = Tanggapan::where('pengaduan_id', $id)->first();
@@ -128,6 +137,17 @@ class MasyarakatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Mencari data masyarakat berdasarkan id
+        $masyarakat = User::findOrFail($id);
+
+
+        // Menghapus data masyarakat
+        $masyarakat->delete();
+
+        // Mengembalikan respons JSON untuk konfirmasi
+        return response()->json([
+            'success' => true,
+            'message' => 'Data masyarakat berhasil dihapus.'
+        ]);
     }
 }

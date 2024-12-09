@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LAPORMAKO | Laporan Pengaduan Masyarakat Pamekasan</title>
+    <title>MADUKONCER | DISPERINDAG PAMEKASAN</title>
 
     <style>
         .thead {
-            background-color: #3B82F6;
+            background-color: #727272;
             color: #ffffff;
         }
     </style>
@@ -19,7 +19,8 @@
 <body>
     <div class="container mt-5">
         <div class="title text-center mb-5">
-            <h2>Laporan Pengaduan Masyarakat Pamekasan</h2>
+            <h4>LAPORAN DATA PENGADUAN MASYARAKAT</h4>
+      <h5>DINAS PERINDUSTRIAN DAN PERDAGANGAN KABUPATEN PAMEKASAN</h5>
         </div>
         <table class="table table-bordered">
             <thead class="thead">

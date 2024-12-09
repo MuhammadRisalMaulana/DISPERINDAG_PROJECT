@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    LAPORMAKO | Data Petugas
+    MADUKONCER | Data Petugas
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.masyarakat')
 
 @section('title')
-LAPORMAKO | Dashboard
+MADUKONCER | Dashboard
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@ LAPORMAKO | Dashboard
           class="text-gray-800 text-sm font-semibold px-4 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-gray-400 ">
 
           <h2>Nama : {{ $item->name }}</h2>
-          <h2 class="mt-4">Alamat : {{ $item->user_alamat }}</h2>
+          <h2 class="mt-4">Alamat Pelapor : {{ $item->user_alamat }}</h2>
           <h2 class="mt-4">No Telepon : {{ $item->user->phone }}</h2>
           <h2 class="mt-4">Tanggal : {{ $item->created_at->format('l, d F Y - H:i:s') }}</h2>
           <h2 class="mt-4">Status : 
@@ -44,7 +44,7 @@ LAPORMAKO | Dashboard
 
         <div class="px-4 py-3 mb-8 flex text-gray-800 bg-white rounded-lg shadow-md dark:bg-gray-800">
           <div class="relative mr-3 md:block">
-            <h1 class="text-center mb-8 font-semibold">Foto</h1>
+            <h1 class="text-center mb-8 font-semibold">Bukti Foto</h1>
             <!-- Perbaikan untuk memastikan gambar ditampilkan -->
             @if($item->image)
                 <img class="h-auto w-auto max-h-64 max-w-sm rounded-lg" src="{{ Storage::url($item->image) }}" alt="Gambar Pengaduan" loading="lazy" />

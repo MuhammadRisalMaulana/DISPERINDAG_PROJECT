@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-LAPORMAKO | Detail Pengaduan
+MADUKONCER | Detail Pengaduan
 @endsection
 
 @section('content')

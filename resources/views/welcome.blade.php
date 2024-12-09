@@ -65,16 +65,11 @@
             Layanan Pengawasan Barang / Jasa Beredar
           </h1>
           <p class="leading-normal text-1xl mb-8">
-            LAPORKAN !!!<br><br>
-            Apabila Barang Kadaluarsa, Barang tidak sesuai SNI, Barang dalam kondisi rusak, 
-            Barang tidak mencantumkan tanggal produksi dan tanggal kadaluarsa, Barang tidak sesuai takaran.
-            <br><br>
-            Sampaikan laporan masalah Anda di sini, kami akan memprosesnya
-            dengan cepat.
+            MADU KONCER [ MASYARAKAT PEDULI KONSUMEN CERDAS ] <br> DISPERINDAG KABUPATEN PAMEKASAN
           </p>
           <button
             class="mx-auto lg:mx-0 bg-green-600 text-white font-bold rounded-md my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            <a href="{{ url('login')}}">LAPORKAN!!!</a>
+            <a href="{{ url('login')}}">PENGADUAN KONSUMEN</a>
           </button>
         </div>
         <!--Right Col-->

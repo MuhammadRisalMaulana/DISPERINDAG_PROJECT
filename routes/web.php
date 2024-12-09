@@ -16,14 +16,14 @@ use RealRashid\SweetAlert\Facades\Alert;
 */
 
 Route::get('/', function () {
-    
+
     return view('welcome');
 });
 
 // Admin/Petugas
 Route::prefix('admin')
     ->middleware(['auth', 'admin'])
-    ->group(function() {
+    ->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
         Route::resource('pengaduans', 'PengaduanController');
@@ -32,24 +32,37 @@ Route::prefix('admin')
 
         Route::get('masyarakat', 'AdminController@masyarakat');
         Route::resource('petugas', 'PetugasController');
+        Route::get('/petugas/{id}/delete', 'PetugasController@confirmDelete')->name('petugas.confirmDelete');
+        Route::delete('/petugas/{id}', 'PetugasController@destroy')->name('petugas.destroy');
+
+
 
         Route::get('laporan', 'AdminController@laporan');
         Route::get('laporan/cetak', 'AdminController@cetak');
         Route::get('pengaduan/cetak/{id}', 'AdminController@pdf');
-});
+
+    });
 
 
 // Masyarakat
 Route::prefix('user')
     ->middleware(['auth', 'MasyarakatMiddleware'])
-    ->group(function() {
-				Route::get('/', 'MasyarakatController@index')->name('masyarakat-dashboard');
-                Route::resource('pengaduan', 'MasyarakatController');
-                Route::get('pengaduan', 'MasyarakatController@lihat');
-});
+    ->group(function () {
+        Route::get('/', 'MasyarakatController@index')->name('masyarakat-dashboard');
+        Route::resource('pengaduan', 'MasyarakatController');
+        Route::get('pengaduan', 'MasyarakatController@lihat');
+        Route::delete('masyarakat/{masyarakat}', 'MasyarakatController@destroy')->name('masyarakat.destroy');
+        
+    });
 
 
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+
+
+
+
+require __DIR__ . '/auth.php';

@@ -26,10 +26,15 @@ class PetugasController extends Controller
             Alert::warning('Peringatan', 'Maaf Anda tidak punya akses');
             return back();
         }
-
-        $data = DB::table('users')->where('roles', '=', 'PETUGAS')->orWhere('roles', '=', 'ADMIN')->get();
+    
+        $data = DB::table('users')->whereIn('roles', ['PETUGAS', 'ADMIN'])->get();
+        $jumlahAdmin = User::where('roles', 'ADMIN')->count();
+        $jumlahPetugas = User::where('roles', 'PETUGAS')->count();
+    
         return view('pages.admin.petugas.index', [
-            'data' => $data
+            'data' => $data,
+            'jumlahAdmin' => $jumlahAdmin,
+            'jumlahPetugas' => $jumlahPetugas
         ]);
     }
 
@@ -118,6 +123,24 @@ class PetugasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+    if (!$user) {
+        Alert::error('Error', 'Petugas tidak ditemukan');
+        return back();
     }
+
+    if (
+        ($user->roles === 'ADMIN' && User::where('roles', 'ADMIN')->count() <= 1) ||
+        ($user->roles === 'PETUGAS' && User::where('roles', 'PETUGAS')->count() <= 1)
+    ) {
+        Alert::warning('Peringatan', 'Harus ada minimal 1 admin atau petugas.');
+        return back();
+    }
+
+    $user->delete();
+    Alert::success('Berhasil', 'Data berhasil dihapus');
+    return redirect()->route('petugas.index');
+    }
+
 }

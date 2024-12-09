@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LAPORMAKO | Laporan</title>
+  <title>MADUKONCER | Laporan</title>
   <style>
     img{
       height: 100px;;
     }
 
     hr.solid {
-    border-top: 2px solid #027d11;
+    border-top: 2px solid #4a4a4a;
     }
   </style>
 
@@ -19,8 +19,9 @@
 <body>
   <div class="container">
     <div class="title text-center mb-5">
-      <h2>Laporan Pengaduan Masyarakat</h2>
-      <h5><a href="https://disperindag.pamekasankab.go.id/" target="_blank">disperindag.pamekasankab.go.id</a></h5>
+      <h3>LAPORAN PENGADUAN MASYARAKAT</h3>
+      <h5>DINAS PERINDUSTRIAN DAN PERDAGANGAN KABUPATEN PAMEKASAN</h5>
+      <h7><a href="https://disperindag.pamekasankab.go.id/" target="_blank">disperindag.pamekasankab.go.id</a></h7>
     </div>
     <hr class="solid">
 
