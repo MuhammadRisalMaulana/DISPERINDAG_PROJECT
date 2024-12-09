@@ -18,10 +18,10 @@ MADUKONCER | Detail Pengaduan
         <div
           class="text-gray-800 text-sm font-semibold px-4 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-gray-400 ">
 
-          <h2>Nama : {{ $ite->name }}</h2>
-          <h2 class="mt-4">Alamat : {{ $ite->user_alamat }}</h2>
+          <h2>Nama : {{ $item->name }}</h2>
+          <h2 class="mt-4">Alamat : {{ $item->user_alamat }}</h2>
           <h2 class="mt-4">No Telepon : {{ $item->user->phone }}</h2>
-          <h2 class="mt-4">Tanggal : {{ $ite->created_at->format('l, d F Y - H:i:s') }}</h2>
+          <h2 class="mt-4">Tanggal : {{ $item->created_at->format('l, d F Y - H:i:s') }}</h2>
           <h2 class="mt-4">Status : 
             @if($item->status =='Belum di Proses')
             <span
@@ -40,6 +40,8 @@ MADUKONCER | Detail Pengaduan
                 </span>
             @endif
           </h2>
+          <h2 class="mt-4">Lokasi Kejadian : {{ $item->lokasi_kejadian }}</h2>
+          <h2 class="mt-4">Keterangan Tambahan : {{ $item->keterangan_tambahan }}</h2>
         </div>
 
         <div class="px-4 py-3 mb-8 flex text-gray-800 bg-white rounded-lg shadow-md dark:bg-gray-800">

@@ -37,6 +37,16 @@
       <h6>No. Telepon : {{ $pengaduan->user->phone }}</h6>
     </div>
 
+    <!-- Lokasi Kejadian -->
+    <div class="mt-3">
+      <h6>Lokasi Kejadian: {{ $pengaduan->lokasi_kejadian }}</h6>
+    </div>
+
+    <!-- Keterangan Tambahan -->
+    <div class="mt-3">
+      <h6>Keterangan Tambahan: {{ $pengaduan->keterangan_tambahan ?? 'Tidak ada keterangan tambahan' }}</h6>
+    </div>
+
     <table class="table table-bordered">
       <thead class="thead">
         <tr>

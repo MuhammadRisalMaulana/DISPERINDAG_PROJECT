@@ -14,7 +14,7 @@ MADUKONCER | Dashboard
 
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
-        @foreach($item->details as $ite)
+        @foreach($item->details as $item)
         <div
           class="text-gray-800 text-sm font-semibold px-4 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-gray-400 ">
 
@@ -40,6 +40,8 @@ MADUKONCER | Dashboard
                 </span>
             @endif
           </h2>
+          <h2 class="mt-4">Lokasi Kejadian : {{ $item->lokasi_kejadian }}</h2>
+          <h2 class="mt-4">Keterangan Tambahan : {{ $item->keterangan_tambahan }}</h2>
         </div>
 
         <div class="px-4 py-3 mb-8 flex text-gray-800 bg-white rounded-lg shadow-md dark:bg-gray-800">

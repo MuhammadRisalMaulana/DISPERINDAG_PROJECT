@@ -19,11 +19,12 @@ class CreatePengaduansTable extends Migration
             $table->string('user_alamat');
             $table->string('name');
             $table->integer('user_id');
+            $table->string('lokasi_kejadian');
             $table->text('description');
+            $table->text('keterangan_tambahan');
             $table->string('image');
             $table->string('status')->default('Belum di Proses');
             $table->softDeletes();
-            
             $table->timestamps();
         });
     }

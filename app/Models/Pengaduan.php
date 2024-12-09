@@ -12,7 +12,7 @@ class Pengaduan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'image', 'status', 'user_alamat', 'user_id'
+        'name', 'description', 'image', 'status', 'user_alamat', 'user_id', 'lokasi_kejadian', 'keterangan_tambahan'
     ];
 
     protected $hidden = [

@@ -54,6 +54,8 @@ class MasyarakatController extends Controller
         $request->validate([
             'description' => 'required',
             'image' => 'required',
+            'lokasi_kejadian' => 'required',
+            
         ]);
 
         $user_alamat = Auth::user()->alamat;
@@ -64,8 +66,9 @@ class MasyarakatController extends Controller
         $data['user_alamat'] = $user_alamat;
         $data['user_id'] = $id;
         $data['name'] = $name;
+        $data['lokasi_kejadian'] = $request->lokasi_kejadian;
+        $data['keterangan_tambahan'] = $request->keterangan_tambahan;
         $data['image'] = $request->file('image')->store('assets/laporan', 'public');
-
 
 
         Alert::success('Berhasil', 'Pengaduan terkirim');

@@ -25,8 +25,15 @@ MADUKONCER | Dashboard
     @endif
     <form action="{{ route('pengaduan.store')}} " method="POST" enctype="multipart/form-data">
       @csrf
-
+      
       <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <label for="lokasi_kejadian" class="block mt-4 text-sm">
+          <span class="text-gray-700 dark:text-gray-400">Lokasi Kejadian</span>
+          <input
+            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+            type="text" value="{{ old('lokasi_kejadian')}}" name="lokasi_kejadian" placeholder="Masukkan lokasi kejadian" required/>
+        </label>
+
         <label class="block mt-4 text-sm">
           <span class="text-gray-700 dark:text-gray-400">Laporan</span>
           <select
@@ -39,6 +46,14 @@ MADUKONCER | Dashboard
             <option value="Lainnya">Lainnya</option>
           </select>
         </label>
+
+        <label for="keterangan_tambahan" class="block mt-4 text-sm">
+          <span class="text-gray-700 dark:text-gray-400">Keterangan Tambahan</span>
+          <textarea
+            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-textarea"
+            name="keterangan_tambahan" placeholder="Masukkan keterangan tambahan jika ada"></textarea>
+        </label>
+
 
         <label for="image" class="block mt-4 text-sm">
           <span class="text-gray-700 dark:text-gray-400">Bukti Foto</span>
