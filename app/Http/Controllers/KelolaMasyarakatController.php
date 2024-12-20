@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
-class PetugasController extends Controller
+class KelolaMasyarakatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,19 +22,10 @@ class PetugasController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->roles != 'ADMIN') {
-            Alert::warning('Peringatan', 'Maaf Anda tidak punya akses');
-            return back();
-        }
+        $data = DB::table('users')->where('roles', '=', 'USER')->get();
 
-        $data = DB::table('users')->whereIn('roles', ['PETUGAS', 'ADMIN'])->get();
-        $jumlahAdmin = User::where('roles', 'ADMIN')->count();
-        $jumlahPetugas = User::where('roles', 'PETUGAS')->count();
-
-        return view('pages.admin.petugas.index', [
-            'data' => $data,
-            'jumlahAdmin' => $jumlahAdmin,
-            'jumlahPetugas' => $jumlahPetugas
+        return view('pages.admin.masyarakat.index', [
+            'data' => $data
         ]);
     }
 
@@ -45,7 +36,7 @@ class PetugasController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.petugas.create');
+        return view('pages.admin.masyarakat.create');
     }
 
     /**
@@ -62,7 +53,6 @@ class PetugasController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phone' => 'required|string|max:15',
             'password' => 'required|string|confirmed|min:8',
-
         ]);
 
         $user = $request->all();
@@ -72,13 +62,12 @@ class PetugasController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'roles' => $request->roles,
+            'roles' => 'USER',
             'password' => Hash::make($request->password),
-
         ]);
 
-        Alert::success('Berhasil', 'Petugas baru ditambahkan');
-        return redirect('admin/petugas');
+        Alert::success('Berhasil', 'Data Masyarakat baru ditambahkan');
+        return redirect('admin/kelola-masyarakat');
     }
 
     /**
@@ -126,20 +115,17 @@ class PetugasController extends Controller
         $user = User::find($id);
 
         if (!$user) {
-            Alert::error('Error', 'Petugas tidak ditemukan');
-            return back();
-        }
-
-        if (
-            ($user->roles === 'ADMIN' && User::where('roles', 'ADMIN')->count() <= 1) ||
-            ($user->roles === 'PETUGAS' && User::where('roles', 'PETUGAS')->count() <= 1)
-        ) {
-            Alert::warning('Peringatan', 'Harus ada minimal 1 admin atau petugas.');
-            return back();
+            return response()->json([
+                'success' => false,
+                'message' => 'Data Masyarakat tidak ditemukan',
+            ], 404);
         }
 
         $user->delete();
-        Alert::success('Berhasil', 'Data berhasil dihapus');
-        return redirect()->route('petugas.index');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data berhasil dihapus',
+        ], 200);
     }
 }

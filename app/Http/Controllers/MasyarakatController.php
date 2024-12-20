@@ -85,8 +85,6 @@ class MasyarakatController extends Controller
 
     public function lihat()
     {
-
-
         $user = Auth::user()->pengaduan()->orderBy('created_at', 'DESC')->get();
 
         return view('pages.masyarakat.detail', [

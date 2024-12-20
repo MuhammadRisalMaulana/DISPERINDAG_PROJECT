@@ -24,6 +24,20 @@ MADUKONCER | Laporan
           </ul>
         </div>
         @endif
+        <div class="flex justify-between mb-4">
+          <form method="GET" action="{{ route('laporan.index') }}" class="flex space-x-4">
+              <input type="text" name="name" placeholder="Cari Nama" value="{{ request('name') }}"
+                  class="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-purple-300" />
+
+              <input type="date" name="date" value="{{ request('date') }}"
+                  class="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-purple-300" />
+
+              <button type="submit"
+                  class="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none">
+                  Cari
+              </button>
+          </form>
+      </div>
         <table class="w-full whitespace-no-wrap">
           <thead>
             <tr
