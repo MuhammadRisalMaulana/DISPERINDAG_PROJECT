@@ -95,7 +95,7 @@
                 if (result.isConfirmed) {
                     // Mengirim permintaan AJAX untuk menghapus data
                     $.ajax({
-                        url: '/masyarakat/' + id, // Sesuaikan dengan route destroy Anda
+                        url: 'masyarakat/{id}' + id, // Sesuaikan dengan route destroy Anda
                         type: 'DELETE',
                         data: {
                             _token: '{{ csrf_token() }}', // Menyertakan CSRF Token

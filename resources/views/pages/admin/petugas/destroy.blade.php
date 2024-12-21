@@ -17,13 +17,13 @@ Hapus Petugas
         Apakah Anda yakin ingin menghapus data berikut?
       </h3>
       <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
-        Nama Petugas: <span class="font-medium">{{ $petugas->name }}</span>
+        Nama Petugas : <span class="font-medium">{{ $petugas->name }}</span>
       </p>
       <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-        Email: <span class="font-medium">{{ $petugas->email }}</span>
+        Email : <span class="font-medium">{{ $petugas->email }}</span>
       </p>
       <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-        Role: <span class="font-medium">{{ $petugas->roles }}</span>
+        Role : <span class="font-medium">{{ $petugas->roles }}</span>
       </p>
       
       <div class="mt-6 flex items-center justify-end space-x-4">

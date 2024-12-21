@@ -38,14 +38,14 @@
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Ingat aku') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                        {{ __('Lupa Kata Sandi Anda?') }}
                     </a>
                 @endif
 
@@ -57,6 +57,6 @@
             </div>
         </form>
 
-        <p> Dont have an account? </p><a class="background-colour: to-blue-600"href="/register">Register Here!</a>
+        <p> Tidak punya akun? </p><a class="background-colour: to-blue-600"href="/register">Daftar di sini!</a>
     </x-auth-card>
 </x-guest-layout>
