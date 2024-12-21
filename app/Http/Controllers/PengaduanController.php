@@ -15,10 +15,22 @@ class PengaduanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         Carbon::setLocale('id');
-        $items = Pengaduan::orderBy('created_at', 'DESC')->get();
+        
+        $query = Pengaduan::query();
+    
+        if ($request->filled('name')) {
+            $query->where('name', 'LIKE', '%' . $request->name . '%');
+        }
+    
+        if ($request->filled('date')) {
+            $query->whereDate('created_at', $request->date);
+        }
+    
+        $items = $query->orderBy('created_at', 'DESC')->get();
+    
         return view('pages.admin.pengaduan.index', [
             'items' => $items
         ]);

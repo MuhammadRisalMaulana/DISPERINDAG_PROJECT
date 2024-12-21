@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use Carbon\Carbon;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
 use App\Models\User;
@@ -29,20 +30,21 @@ class AdminController extends Controller
         ]);
     }
 
-    public function masyarakat()
+    public function laporan(Request $request)
     {
+        Carbon::setLocale('id');
 
-        $data = DB::table('users')->where('roles', '=', 'USER')->get();
-
-        return view('pages.admin.masyarakat', [
-            'data' => $data
-        ]);
-    }
-
-    public function laporan()
-    {
-
-        $pengaduan = Pengaduan::orderBy('created_at', 'DESC')->get();
+        $query = Pengaduan::query();
+    
+        if ($request->filled('name')) {
+            $query->where('name', 'LIKE', '%' . $request->name . '%');
+        }
+    
+        if ($request->filled('date')) {
+            $query->whereDate('created_at', $request->date);
+        }
+    
+        $pengaduan = $query->orderBy('created_at', 'DESC')->get();
 
         return view('pages.admin.laporan', [
             'pengaduan' => $pengaduan
