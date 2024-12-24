@@ -40,7 +40,7 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->user_alamat }}</td>
                         <td>{{ $item->description }}</td>
-                        <td>{{ $item->created_at->format('l, d F Y - H:i:s') }}</td>
+                        <td>{{ $item->created_at->locale('id')->isoFormat('dddd, D MMMM YYYY - HH:mm:ss') }}                        </td>                        
                         <td>{{ $item->status }}</td>
                     </tr>
                 @endforeach

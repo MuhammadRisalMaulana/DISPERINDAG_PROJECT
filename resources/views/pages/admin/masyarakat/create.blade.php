@@ -19,7 +19,7 @@
                         <span class="text-gray-700 dark:text-gray-400">Name</span>
                         <input
                             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                            type="text" placeholder="John Doe" value="{{ old('name') }}" name="name"
+                            type="text" placeholder="Nama" value="{{ old('name') }}" name="name"
                             required></input>
                     </label>
 
@@ -34,7 +34,7 @@
                         <span class="text-gray-700 dark:text-gray-400">Email</span>
                         <input
                             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                            type="email" placeholder="email@email.com" value="{{ old('email') }}" name="email"
+                            type="email" placeholder="Email" value="{{ old('email') }}" name="email"
                             required></input>
                     </label>
 
@@ -42,7 +42,7 @@
                         <span class="text-gray-700 dark:text-gray-400">No. Hp</span>
                         <input
                             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                            type="text" placeholder="0123456789" value="{{ old('phone') }}" name="phone"
+                            type="text" placeholder="No telepon" value="{{ old('phone') }}" name="phone"
                             required></input>
                     </label>
 
