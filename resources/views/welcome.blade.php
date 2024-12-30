@@ -167,7 +167,8 @@
         <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:w-1/2">
           <div class="text-gray-800 text-center">
             <div class="w-100 mx-auto"> 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.685171644684!2d113.49404945001837!3d-7.1623477518593335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd77deb7169ed9f%3A0x5c7ec8b736c09faa!2sJl.%20Raya%20Pamekasan%20-%20Sumenep%20No.201%2C%20Serkeser%2C%20Buddagan%2C%20Kec.%20Pademawu%2C%20Kabupaten%20Pamekasan%2C%20Jawa%20Timur%2069323!5e0!3m2!1sid!2sid!4v1733901870413!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.685171644684!2d113.49404945001837!3d-7.1623477518593335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd77deb7169ed9f%3A0x5c7ec8b736c09faa!2sJl.%20Raya%20Pamekasan%20-%20Sumenep%20No.201%2C%20Serkeser%2C%20Buddagan%2C%20Kec.%20Pademawu%2C%20Kabupaten%20Pamekasan%2C%20Jawa%20Timur%2069323!5e0!3m2!1sid!2sid!4v1733901870413!5m2!1sid!2sid" 
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -176,7 +177,7 @@
     <!-- Footer -->
     <footer class="text-center font-medium bg-green-200 py-5">
       © {{ now()->year }} MADUKONCER | By
-      <a href="/" class="text-black-500" target="_blank">DISPERINDAG PAMEKASAN</a>
+      <a href="/" class="text-black-500" target="_blank">Dinas Perindustrian dan Perdagangan Kabupaten Pamekasan</a>
     </footer>
     @include('sweetalert::alert')
   </body>
